@@ -1,6 +1,6 @@
 %define name	gphpedit
 %define version	0.9.91
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: 	 	%{name}
 Summary: 	GNOME PHP/HTML/CSS development environment	
@@ -8,8 +8,10 @@ Version: 	%{version}
 Release: 	%{release}
 
 Source:		%{name}-%{version}.tar.bz2
+Patch0:		gphpedit-0.9.91-fix-crash.patch
+Patch1:		gphpedit-0.9.91-fix-desktop-entry.patch
 URL:		http://www.gphpedit.org/
-License:	GPL
+License:	GPLv2+
 Group:		Editors
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgnomeui2-devel libgnome-vfs2-devel libgtkhtml2-devel
@@ -22,6 +24,8 @@ hints showing parameters, and syntax highlighting.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p0
 perl -p -i -e 's|/usr/local/share|/usr/share||g' src/main.h
 
 %build
@@ -31,13 +35,9 @@ make
 										
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
 #menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="%{name}.png" needs="x11" title="GPHPEdit" longtitle="PHP Editor" section="More Applications/Editors"
-EOF
 
 #icons
 mkdir -p $RPM_BUILD_ROOT/%_liconsdir
@@ -65,8 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/*
 %{_datadir}/%name
 %{_datadir}/pixmaps/*
-%{_menudir}/%name
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
-
