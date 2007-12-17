@@ -13,7 +13,6 @@ Patch1:		gphpedit-0.9.91-fix-desktop-entry.patch
 URL:		http://www.gphpedit.org/
 License:	GPLv2+
 Group:		Editors
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgnomeui2-devel libgnome-vfs2-devel libgtkhtml2-devel
 BuildRequires:	ImageMagick
 
