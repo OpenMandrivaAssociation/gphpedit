@@ -15,7 +15,7 @@ License:	GPLv2+
 Group:		Editors
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgnomeui2-devel libgnome-vfs2-devel libgtkhtml2-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 
 %description
 GPHPEdit is a GNOME2 editor that is dedicated to editing PHP files and other
