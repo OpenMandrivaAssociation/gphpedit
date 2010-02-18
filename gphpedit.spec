@@ -10,6 +10,7 @@ Release: 	%{release}
 Source:		%{name}-%{version}.tar.bz2
 Patch0:		gphpedit-0.9.91-fix-crash.patch
 Patch1:		gphpedit-0.9.91-fix-desktop-entry.patch
+Patch2:		gphpedit-0.9.91-fix-str-fmt.patch
 URL:		http://www.gphpedit.org/
 License:	GPLv2+
 Group:		Editors
@@ -26,7 +27,7 @@ hints showing parameters, and syntax highlighting.
 %setup -q
 %patch0 -p1
 %patch1 -p0
-perl -p -i -e 's|/usr/local/share|/usr/share||g' src/main.h
+%patch2 -p0
 
 %build
 %configure2_5x
