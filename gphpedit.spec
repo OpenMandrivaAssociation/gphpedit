@@ -14,8 +14,10 @@ URL:		http://www.gphpedit.org/
 License:	GPLv2+
 Group:		Editors
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	libgnomeui2-devel libgnome-vfs2-devel libgtkhtml2-devel
-BuildRequires:	imagemagick
+BuildRequires:	gtk+2-devel
+BuildRequires:	libGConf2-devel
+BuildRequires:	webkitgtk-devel
+BuildRequires:	intltool
 
 %description
 GPHPEdit is a GNOME2 editor that is dedicated to editing PHP files and other
