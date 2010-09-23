@@ -1,13 +1,12 @@
 %define name	gphpedit
-%define version	0.9.91
-%define release %mkrel 5
+%define version	0.9.98
+%define release %mkrel -c RC1 1
 
 Name: 	 	%{name}
 Summary: 	GNOME PHP/HTML/CSS development environment	
 Version: 	%{version}
 Release: 	%{release}
-
-Source:		%{name}-%{version}.tar.bz2
+Source:		http://www.gphpedit.org/sites/default/files/%{name}-%{version}RC1.tar.gz
 Patch0:		gphpedit-0.9.91-fix-crash.patch
 Patch1:		gphpedit-0.9.91-fix-desktop-entry.patch
 Patch2:		gphpedit-0.9.91-fix-str-fmt.patch
@@ -24,12 +23,15 @@ supporting files, like HTML/CSS. It has support for drop-down function lists,
 hints showing parameters, and syntax highlighting.
 
 %prep
-%setup -q
+%setup -qn anoopjohn-gphpedit-fe8a12c
+%if 0
 %patch0 -p1
 %patch1 -p0
 %patch2 -p0
+%endif
 
 %build
+autoreconf -fi
 %configure2_5x
 perl -p -i -e 's|-Os|%optflags||g' `find -name makefile`
 make
@@ -37,16 +39,6 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-
-#menu
-
-#icons
-mkdir -p $RPM_BUILD_ROOT/%_liconsdir
-convert -size 48x48 pixmaps/%name.png $RPM_BUILD_ROOT/%_liconsdir/%name.png
-mkdir -p $RPM_BUILD_ROOT/%_iconsdir
-convert -size 32x32 pixmaps/%name.png $RPM_BUILD_ROOT/%_iconsdir/%name.png
-mkdir -p $RPM_BUILD_ROOT/%_miconsdir
-convert -size 16x16 pixmaps/%name.png $RPM_BUILD_ROOT/%_miconsdir/%name.png
 
 %find_lang %name
 
@@ -70,6 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/*
 %{_datadir}/%name
 %{_datadir}/pixmaps/*
-%{_liconsdir}/%name.png
-%{_iconsdir}/%name.png
-%{_miconsdir}/%name.png
+%{_iconsdir}/hicolor/*/apps/*
