@@ -1,6 +1,6 @@
 %define name	gphpedit
 %define version	0.9.98
-%define release %mkrel -c RC1 1
+%define release %mkrel -c RC1 2
 
 Name: 	 	%{name}
 Summary: 	GNOME PHP/HTML/CSS development environment	
