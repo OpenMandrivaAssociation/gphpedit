@@ -1,0 +1,16 @@
+--- gphpedit.desktop.in.orig	2007-12-09 15:36:31.000000000 +0100
++++ gphpedit.desktop.in	2007-12-09 15:37:42.000000000 +0100
+@@ -1,11 +1,10 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Name=gPHPEdit
+ GenericName=PHP/HTML/CSS editor
+ Comment=Edit PHP source files
+ Exec=gphpedit
+-Icon=gphpedit.png
++Icon=gphpedit
+ Terminal=false
+ Type=Application
+-Categories=Development;IDE;
++Categories=Development;IDE;GTK;GNOME;
+ Version=0.9.4
