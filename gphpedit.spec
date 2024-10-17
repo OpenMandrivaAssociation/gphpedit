@@ -10,7 +10,7 @@ Source0:		http://www.gphpedit.org/sites/default/files/%{name}-%{version}RC1.tar.
 Patch0:		gphpedit-0.9.91-fix-crash.patch
 Patch1:		gphpedit-0.9.91-fix-desktop-entry.patch
 Patch2:		gphpedit-0.9.91-fix-str-fmt.patch
-URL:		http://www.gphpedit.org/
+URL:		https://www.gphpedit.org/
 License:	GPLv2+
 Group:		Editors
 BuildRequires:	pkgconfig(gtk+-2.0)
